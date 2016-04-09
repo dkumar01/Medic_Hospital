@@ -48,6 +48,8 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
         btnViewGlucose = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         lblHeading = new javax.swing.JLabel();
+        btnViewCholesterol = new javax.swing.JButton();
+        btnViewWeight = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,7 +66,7 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(myTable);
 
-        btnViewGlucose.setText("View Glucose Level Trends");
+        btnViewGlucose.setText("Glucose Trends");
         btnViewGlucose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewGlucoseActionPerformed(evt);
@@ -81,6 +83,20 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
         lblHeading.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblHeading.setText("Statistics for Patient");
 
+        btnViewCholesterol.setText("Cholesterol Trends");
+        btnViewCholesterol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCholesterolActionPerformed(evt);
+            }
+        });
+
+        btnViewWeight.setText("Weight Trends");
+        btnViewWeight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewWeightActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,27 +106,33 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnViewGlucose, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnViewCholesterol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewGlucose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewWeight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(btnViewGlucose, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(btnViewGlucose, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnViewCholesterol, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnViewWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addGap(48, 48, 48))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)))
         );
 
         pack();
@@ -119,18 +141,30 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
     private void btnViewGlucoseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewGlucoseActionPerformed
         // TODO add your handling code here:
 
-        GlucoseTrend gl = new GlucoseTrend(patientId);
-        gl.populateChart(patientId);
+        GlucoseTrend gt = new GlucoseTrend(patientId);
+        gt.populateChart(patientId);
         
     }//GEN-LAST:event_btnViewGlucoseActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        DashboardSuper ds = new DashboardSuper();
-        ds.setVisible(true);
+        //ViewPatientsSuper vs = new ViewPatientsSuper();
+        //vs.setVisible(true);
 
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnViewCholesterolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCholesterolActionPerformed
+        // TODO add your handling code here:
+        CholesterolTrend ct = new CholesterolTrend(patientId);
+        ct.populateChart(patientId);        
+    }//GEN-LAST:event_btnViewCholesterolActionPerformed
+
+    private void btnViewWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewWeightActionPerformed
+        // TODO add your handling code here:
+        WeightTrend wt = new WeightTrend(patientId);
+        wt.populateChart(patientId);        
+    }//GEN-LAST:event_btnViewWeightActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +241,9 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnViewCholesterol;
     private javax.swing.JButton btnViewGlucose;
+    private javax.swing.JButton btnViewWeight;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JTable myTable;
