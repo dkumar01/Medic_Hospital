@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Deepak Kumar
  */
-public class ViewPatientsSuper extends javax.swing.JFrame 
+public class ViewPatientSuper extends javax.swing.JFrame 
 {
     
     Connection con = null;
@@ -33,7 +33,7 @@ public class ViewPatientsSuper extends javax.swing.JFrame
     /**
      * Creates new form ViewPatients
      */
-    public ViewPatientsSuper() {
+    public ViewPatientSuper() {
         initComponents();
         
         
@@ -46,7 +46,8 @@ public class ViewPatientsSuper extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -56,13 +57,15 @@ public class ViewPatientsSuper extends javax.swing.JFrame
         btnViewStatistics = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
-            new String [] {
+            new String []
+            {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
@@ -71,33 +74,42 @@ public class ViewPatientsSuper extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         myTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Patient Id", "First Name", "Last name", "Date of Birth", "Phone Number", "Email Id"
             }
-        ) {
-            Class[] types = new Class [] {
+        )
+        {
+            Class[] types = new Class []
+            {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
-            public Class getColumnClass(int columnIndex) {
+            public Class getColumnClass(int columnIndex)
+            {
                 return types [columnIndex];
             }
         });
         jScrollPane3.setViewportView(myTable);
 
         btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnBack.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnBackActionPerformed(evt);
             }
         });
 
         btnViewStatistics.setText("View Statistics");
-        btnViewStatistics.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnViewStatistics.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnViewStatisticsActionPerformed(evt);
             }
         });
@@ -179,21 +191,23 @@ public class ViewPatientsSuper extends javax.swing.JFrame
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewPatientsSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPatientSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewPatientsSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPatientSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewPatientsSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPatientSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewPatientsSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPatientSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewPatientsSuper().setVisible(true);
+                new ViewPatientSuper().setVisible(true);
             }
         });
         
@@ -217,7 +231,6 @@ public class ViewPatientsSuper extends javax.swing.JFrame
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
 
-            int li_row = 0;
             while (rs.next()) 
             {
                 model.addRow(new Object[]{
@@ -228,18 +241,9 @@ public class ViewPatientsSuper extends javax.swing.JFrame
                     rs.getString("phone_no"), 
                     rs.getString("email_id")});
                 
-                /*
-                myTable.setValueAt(rs.getInt("patient_id"), li_row, 0);
-                myTable.setValueAt(rs.getString("first_name"), li_row, 1);
-                myTable.setValueAt(rs.getString("last_name"), li_row, 2);
-                myTable.setValueAt(rs.getString("date_of_birth"), li_row, 3);
-                myTable.setValueAt(rs.getString("phone_no"), li_row, 4);
-                myTable.setValueAt(rs.getString("email_id"), li_row, 5);*/
-
-                li_row++;
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ViewPatientsSuper.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewPatientSuper.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

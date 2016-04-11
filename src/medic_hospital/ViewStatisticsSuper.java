@@ -41,7 +41,8 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         myTable = new javax.swing.JTable();
@@ -54,28 +55,31 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         myTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+            new Object [][]
+            {
+
             },
-            new String [] {
+            new String []
+            {
                 "Date of Submission", "Glucose Level", "Cholesterol", "Weight", "Comments"
             }
         ));
         jScrollPane3.setViewportView(myTable);
 
         btnViewGlucose.setText("Glucose Trends");
-        btnViewGlucose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnViewGlucose.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnViewGlucoseActionPerformed(evt);
             }
         });
 
         btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnBack.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnBackActionPerformed(evt);
             }
         });
@@ -84,15 +88,19 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
         lblHeading.setText("Statistics for Patient");
 
         btnViewCholesterol.setText("Cholesterol Trends");
-        btnViewCholesterol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnViewCholesterol.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnViewCholesterolActionPerformed(evt);
             }
         });
 
         btnViewWeight.setText("Weight Trends");
-        btnViewWeight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnViewWeight.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnViewWeightActionPerformed(evt);
             }
         });
@@ -226,11 +234,11 @@ public class ViewStatisticsSuper extends javax.swing.JFrame {
                     rs.getInt("weight"),
                     rs.getString("comments")});
 
-                myTable.setValueAt(rs.getString("date_of_submission"), li_row, 0);
-                myTable.setValueAt(rs.getInt("glucose_level"), li_row, 1);
-                myTable.setValueAt(rs.getInt("cholesterol"), li_row, 2);
-                myTable.setValueAt(rs.getInt("weight"), li_row, 3);
-                myTable.setValueAt(rs.getString("comments"), li_row, 4);
+//                myTable.setValueAt(rs.getString("date_of_submission"), li_row, 0);
+//                myTable.setValueAt(rs.getInt("glucose_level"), li_row, 1);
+//                myTable.setValueAt(rs.getInt("cholesterol"), li_row, 2);
+//                myTable.setValueAt(rs.getInt("weight"), li_row, 3);
+//                myTable.setValueAt(rs.getString("comments"), li_row, 4);
 
                 li_row++;
             }

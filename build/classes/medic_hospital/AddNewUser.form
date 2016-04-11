@@ -31,11 +31,6 @@
                       <EmptySpace pref="89" max="32767" attributes="0"/>
                       <Component id="txtFirstName" min="-2" pref="140" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="txtPassword" min="-2" pref="140" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Component id="lblLastName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -56,10 +51,15 @@
                               <Component id="lblSuperUser" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="txtDepartment" pref="140" max="32767" attributes="0"/>
                           <Component id="cmbSuperUser" max="32767" attributes="0"/>
+                          <Component id="pwdPassword" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -82,7 +82,7 @@
                   <Component id="lblFirstName" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="txtFirstName" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtLastName" alignment="3" max="32767" attributes="0"/>
                   <Component id="lblLastName" alignment="3" max="32767" attributes="0"/>
@@ -93,16 +93,11 @@
                   <Component id="txtEmailId" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="txtPassword" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblPassword" min="-2" pref="22" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblPassword" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="pwdPassword" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="13" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblDepartment" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="txtDepartment" alignment="3" max="32767" attributes="0"/>
@@ -181,11 +176,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLastNameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPassword">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPasswordActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtDepartment">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDepartmentActionPerformed"/>
@@ -224,6 +214,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="pwdPassword">
     </Component>
   </SubComponents>
 </Form>

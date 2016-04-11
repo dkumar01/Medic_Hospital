@@ -33,13 +33,14 @@ public class Login extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         emailIdLbl = new javax.swing.JLabel();
         passwordLbl = new javax.swing.JLabel();
         emailIdTxt = new javax.swing.JTextField();
-        passwordTxt = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
+        pwdPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,8 +49,10 @@ public class Login extends javax.swing.JFrame
         passwordLbl.setText("Password");
 
         submitBtn.setText("Submit");
-        submitBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        submitBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 submitBtnActionPerformed(evt);
             }
         });
@@ -67,8 +70,8 @@ public class Login extends javax.swing.JFrame
                             .addComponent(passwordLbl))
                         .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(emailIdTxt)
-                            .addComponent(passwordTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                            .addComponent(emailIdTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(pwdPassword)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addComponent(submitBtn)))
@@ -84,7 +87,7 @@ public class Login extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLbl)
-                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(submitBtn)
                 .addContainerGap(87, Short.MAX_VALUE))
@@ -102,7 +105,7 @@ public class Login extends javax.swing.JFrame
             
             pst = con.prepareStatement(sql);
             pst.setString(1, emailIdTxt.getText());
-            pst.setString(2, passwordTxt.getText());
+            pst.setString(2, pwdPassword.getText());
             rs = pst.executeQuery();
             
             if(rs.next())
@@ -111,14 +114,12 @@ public class Login extends javax.swing.JFrame
                 JOptionPane.showMessageDialog(null, "Welcome");
                 
                 this.setVisible(false);
-                StaticData sd = new StaticData();
-                
-                sd.setDoctorId(rs.getInt("doctor_id"));
                 
                 if(rs.getBoolean("super_user"))
                 {
                     DashboardSuper ds = new DashboardSuper();
                     ds.setVisible(true);
+                    ds.setThisId(rs.getInt("doctor_id"));
                     
                     this.dispose();
                     
@@ -127,6 +128,7 @@ public class Login extends javax.swing.JFrame
                 {
                     Dashboard d = new Dashboard();
                     d.setVisible(true);
+                    d.setThisId(rs.getInt("doctor_id"));
 
                     this.dispose();
                 }
@@ -182,7 +184,7 @@ public class Login extends javax.swing.JFrame
     private javax.swing.JLabel emailIdLbl;
     private javax.swing.JTextField emailIdTxt;
     private javax.swing.JLabel passwordLbl;
-    private javax.swing.JTextField passwordTxt;
+    private javax.swing.JPasswordField pwdPassword;
     private javax.swing.JButton submitBtn;
     // End of variables declaration//GEN-END:variables
 }
