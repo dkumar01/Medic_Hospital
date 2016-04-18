@@ -35,6 +35,7 @@ public class ViewPatient extends javax.swing.JFrame
     public ViewPatient()
     {
         initComponents();
+        this.setTitle("View Patient");
     }
 
     /**
@@ -134,7 +135,7 @@ public class ViewPatient extends javax.swing.JFrame
             int patientId = (int) myTable.getValueAt(selectedRowIndex, 0);
             System.out.println("dis need wokry: " + patientId);
 
-            ViewStatisticsSuper vsp = new ViewStatisticsSuper();
+            ViewStatistics vsp = new ViewStatistics();
             vsp.populateList(patientId);
             vsp.setVisible(true);
         }

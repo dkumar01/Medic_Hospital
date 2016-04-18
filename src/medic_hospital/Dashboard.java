@@ -17,6 +17,7 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
+        this.setTitle("Dashboard");
     }
 
     /**

@@ -32,6 +32,7 @@ public class ChangePassword extends javax.swing.JFrame
     public ChangePassword()
     {
         initComponents();
+        this.setTitle("Change Password");
     }
 
     /**

@@ -14,16 +14,20 @@ import javax.swing.JOptionPane;
  *
  * @author Deepak Kumar
  */
-public class Login extends javax.swing.JFrame 
+public class Login extends javax.swing.JFrame
 {
+
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login()
+    {
         initComponents();
+        this.setTitle("Login");
     }
 
     /**
@@ -97,84 +101,114 @@ public class Login extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        try {
-            // TODO add your handling code here:
-            Class.forName("com.mysql.jdbc.Driver");
-            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/medic", "root", "");
-            String sql = "Select * from doctor where email_id = ? and password = ?";
-            
-            pst = con.prepareStatement(sql);
-            pst.setString(1, emailIdTxt.getText());
-            pst.setString(2, pwdPassword.getText());
-            rs = pst.executeQuery();
-            
-            if(rs.next())
+        try
+        {
+            if (emailIdTxt.getText().isEmpty())
             {
-                //Show Successful Login
-                JOptionPane.showMessageDialog(null, "Welcome");
-                
-                this.setVisible(false);
-                
-                if(rs.getBoolean("super_user"))
-                {
-                    DashboardSuper ds = new DashboardSuper();
-                    ds.setVisible(true);
-                    ds.setThisId(rs.getInt("doctor_id"));
-                    
-                    this.dispose();
-                    
-                }
-                else
-                {
-                    Dashboard d = new Dashboard();
-                    d.setVisible(true);
-                    d.setThisId(rs.getInt("doctor_id"));
-
-                    this.dispose();
-                }
+                JOptionPane.showMessageDialog(null, "Email Field is Empty!");
             }
-            
+            else if (pwdPassword.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Password Field is Empty!");
+            }
+
             else
             {
-                JOptionPane.showMessageDialog(null, "Invalid Login Details");
+
+                // TODO add your handling code here:
+                Class.forName("com.mysql.jdbc.Driver");
+                con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/medic", "root", "");
+                String sql = "Select * from doctor where email_id = ? and password = ?";
+
+                pst = con.prepareStatement(sql);
+                pst.setString(1, emailIdTxt.getText());
+                pst.setString(2, pwdPassword.getText());
+                rs = pst.executeQuery();
+
+                if (rs.next())
+                {
+                    //Show Successful Login
+                    JOptionPane.showMessageDialog(null, "Welcome");
+
+                    this.setVisible(false);
+
+                    if (rs.getBoolean("super_user"))
+                    {
+                        DashboardSuper ds = new DashboardSuper();
+                        ds.setVisible(true);
+                        ds.setThisId(rs.getInt("doctor_id"));
+
+                        this.dispose();
+
+                    }
+                    else
+                    {
+                        Dashboard d = new Dashboard();
+                        d.setVisible(true);
+                        d.setThisId(rs.getInt("doctor_id"));
+
+                        this.dispose();
+                    }
+                }
+
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid Login Details");
+                }
             }
-        } catch (SQLException | ClassNotFoundException ex)
+        }
+        catch (SQLException | ClassNotFoundException ex)
         {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+
     }//GEN-LAST:event_submitBtnActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        }
+        catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        }
+        catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        }
+        catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        }
+        catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new Login().setVisible(true);
             }
         });

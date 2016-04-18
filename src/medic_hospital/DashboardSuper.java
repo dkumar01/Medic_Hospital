@@ -18,7 +18,7 @@ public class DashboardSuper extends javax.swing.JFrame
     public DashboardSuper()
     {
         initComponents();
-
+        this.setTitle("Dashboard Super");
     }
 
     /**

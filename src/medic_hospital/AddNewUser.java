@@ -32,6 +32,7 @@ public class AddNewUser extends javax.swing.JFrame
     public AddNewUser()
     {
         initComponents();
+        this.setTitle("Add New User");
     }
 
     /**
